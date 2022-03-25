@@ -1,0 +1,52 @@
+@font-face {
+    src: url("../fonts/TTNorms-Medium.otf");
+    font-family: 'TTNorms-FONT';
+}
+
+#flex-link-container{
+    font-family: 'TTNorms-FONT';
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#header {
+    margin-top: 10px;
+    text-align: center;
+    flex: content;
+    border-bottom: 1px lightgray solid;
+}
+
+#header #header-navbar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo-header a img {
+    margin-top: 5%;
+    float: left;
+    height: 60px;
+}
+
+#vitalik-header p {
+    color: #000000a0;
+    font-size: 59px;
+    letter-spacing: 5px;
+}
+
+#user-header{
+    text-align: right;
+}
+
+#admin-header {
+    margin-top: 10px;
+}
+
+#admin-header a {
+    padding:0;
+    width: 120px;
+    height: 38px;
+    font-size: 11pt;
+    line-height: 13pt;
+}

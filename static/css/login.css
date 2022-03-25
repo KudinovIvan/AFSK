@@ -1,0 +1,30 @@
+#head-logo {
+    margin-top: 5%;
+}
+#head-logo img{
+    height: 40%;
+    width: 40%;
+}
+
+#login-form {
+    margin-top: 5%;
+}
+
+#login-form .form-group {
+    margin-top: 2%;
+}
+
+#login-form #formValidate {
+    margin-top: 1%;
+    color: #c20000;
+}
+
+#login-form button {
+    margin-top: 5%;
+}
+
+
+
+
+
+

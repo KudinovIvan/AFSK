@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static "js/login.js" %}"></script>
+<link type="text/css" href="{% static "css/login.css" %}" rel="stylesheet">
+
+<div id="head-logo" class="container d-flex justify-content-center">
+    <img src="{% static "img/logo.png" %}" alt="afsk-spb">
+</div>
+
+<div id="login-form" class="container d-flex justify-content-center">
+    <div class="col-sm-3">
+        <form id="login_form" onsubmit="login(); return false;">
+            <div class="form-group">
+                <label for="InputLogin">Логин</label>
+                <input class="form-control" id="InputLogin" aria-describedby="loginHelp" autocomplete="login" required>
+            </div>
+
+            <div class="form-group">
+                <label for="InputPassword">Пароль</label>
+                <input type="password" class="form-control" id="InputPassword" autocomplete="current-password" required>
+            </div>
+
+            <div id="formValidate"></div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,81 @@
+#chart_buttons{
+    border: 1px lightgray solid;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    padding:0;
+}
+
+#img-shema-text{
+    text-align: left;
+}
+
+#img-shema {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+    height: 60%;
+    width: 70%;
+}
+
+#chart_buttons .row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#chart_buttons #visualization-mode {
+    display: flex;
+    border-bottom: 1px lightgray solid;
+}
+
+#chart_buttons #visualization-mode .col{
+    display: flex;
+}
+
+#chart_buttons #visualization-mode #visualization-mode-first{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: space-evenly;
+}
+
+.buttons-block-border-right {
+    border-right: 1px lightgray solid;
+}
+
+.address-title {
+    margin-top: 0;
+    padding-left: 1%;
+    text-align: justify;
+    line-height: 20px;
+    padding-bottom: 8%;
+}
+
+.chart-button-title {
+    margin-top: 3%;
+    text-align: justify;
+    line-height: 20px;
+    padding-bottom: 15%;
+}
+
+.chart-submit-buttons {
+    text-align: left;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.chart-submit-buttons button {
+    width: 100%;
+    margin-top: 10%;
+}
+
+#m-buttons div {
+    margin-bottom: 10%;
+}
+#m-buttons div button {
+    width: 100%;
+    height: 127%;
+}
+
+#chart-container {
+    margin-bottom: 3%;
+}

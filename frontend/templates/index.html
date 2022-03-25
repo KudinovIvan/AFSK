@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>АФСК ВИТАЛИК</title>
+    {% load static %}
+
+    <!-- Бутстрап -->
+    <script src="{% static "js/libs/bootstrap@5.0.0-beta1_dist_js_bootstrap.bundle.js" %}"></script>
+    <link type="text/css" href="{% static "css/libs/bootstrap@5.0.0-beta1_dist_css_bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Базовый JS Файл -->
+    <script src="{% static "js/base.js" %}"></script>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+            initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+
+
+{% block content %}
+<script src="{% static "js/router.js" %}"></script>
+{% endblock content %}
+
+
+</html>
+

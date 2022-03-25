@@ -1,0 +1,26 @@
+### вход (вернет  рефреш и аксесс токен)(доступен только в debug режиме)
+POST http://{{host}}/api/auth/jwt/login/
+Content-Type: application/json
+
+{
+  "username": "{{ username }}",
+  "password": "{{ password }}"
+}
+
+
+### проверить актуальность аксес токена
+POST http://{{host}}/api/auth/jwt/verify/
+Content-Type: application/json
+
+{
+  "token": "{{ access }}"
+}
+
+
+### получить аксес токен по рефреш токену
+POST http://{{host}}/api/auth/jwt/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "{{ refresh }}"
+}

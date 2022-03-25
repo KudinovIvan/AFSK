@@ -1,0 +1,9 @@
+#footer {
+    border-top: 1px lightgray solid;
+    left: 0; right:0; bottom: 0;
+}
+
+#footer #rights-reserved {
+    margin-top: 2%;
+    text-align: center;
+}

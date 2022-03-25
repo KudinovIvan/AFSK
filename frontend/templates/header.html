@@ -1,0 +1,37 @@
+{% load static %}
+<link type="text/css" href="{% static "css/header.css" %}" rel="stylesheet">
+<script src="{% static "js/logout.js" %}"></script>
+<script src="{% static "js/header.js" %}"></script>
+
+<div id="flex-link-container">
+<div id="header" class="container ">
+    <div id="header-navbar" class="row">
+        <div id="logo-header" class="col-md-4">
+            <a href='/'><img src="{% static "img/logo.png" %}" alt="afsk-spb"></a>
+        </div>
+
+        <div id="vitalik-header" class="col-md-4">
+            <p>ВИТАЛИК</p>
+        </div>
+
+        <div id="user-header" class="col-md-4">
+            <span id="user-greeting-text" class="col"></span>
+            <a onclick="logout()" class="btn btn-danger">Выход</a>
+
+            <div id="admin-header">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="navbar_template">
+    <span class="username">Добрый день, </span>
+</template>
+
+<template id="navbar-admin-template">
+    <a href="api/admin/api/urlsmodel/" class="btn btn-primary btn-lg active" role="button"
+       aria-pressed="true">Настройки кнопок</a>
+    <a href="api/admin/users/customuser/" class="btn btn-primary btn-lg active" role="button"
+       aria-pressed="true">Настройки пользоателей</a>
+</template>

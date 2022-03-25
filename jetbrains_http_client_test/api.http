@@ -1,0 +1,29 @@
+### получить ссылки
+GET http://{{host}}/api/v1/urls/
+Content-Type: application/json
+Authorization: Bearer {{ access }}
+
+
+### создать метку
+### Сетка:
+### m1 m3 m5
+### m2 m4 m6
+###
+POST http://{{host}}/api/v1/targets/create/
+Content-Type: application/json
+
+{
+  "target_id": "m1",
+  "timestamp": "1996-12-19T16:39:57+03:00",
+  "dx": 12.1,
+  "dy": 12.4,
+  "skox": 12.1,
+  "skoy": 12.1
+}
+
+
+### получить метки с фильтрацией
+GET http://{{host}}/api/v1/targets/list/?target_id=m1&timestamp_range_after=2021-01-29&timestamp_range_before=2021-01-31&target_id__in=m1,m2
+Content-Type: application/json
+Authorization: Bearer {{ access }}
+

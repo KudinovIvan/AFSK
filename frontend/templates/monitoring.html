@@ -1,0 +1,145 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% include 'header.html' %}
+    <script src="{% static "js/libs/chartjs_2.9.4.js" %}"></script>
+    <script src="{% static "js/json2csv.js" %}"></script>
+    <script src="{% static "js/monitoring.js" %}"></script>
+    <link type="text/css" href="{% static "css/monitoring.css" %}" rel="stylesheet">
+
+    <div id="chart_buttons" class="container">
+        <div id="visualization-mode">
+            <div class="col" id="visualization-mode-first">
+                <div>Смещение меток</div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="target-visualization-mode"
+                           onclick="button_click_event_listener('', 'data_mode')"/>
+                </div>
+                <div> Крен</div>
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-3 buttons-block-border-right">
+                <div class="address-title">Фасад дома<br>Каменноостровский 53/22:</div>
+                <img id="img-shema" src="{% static 'img/schema3.png' %}" alt="Схема">
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 buttons-block-border-right">
+                <div class="col-sm-12 chart-button-title">Метка:</div>
+                <div class="col-sm-12">
+                    <div id="m-buttons" class="row panel-buttons">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3 ">
+                <div class="row">
+                    <div class="col-sm-12 chart-button-title">
+                        <label for="date_selection">Дата от: </label>
+                    </div>
+                     <div class="col-6 col-sm-12">
+                        <input data-date-format="yyyy-dd-mm" type="date" class="form-control" id="dates_range_from">
+                    </div>
+
+                    <div class="col-sm-12 chart-submit-buttons">
+                        <button id="button-show" type="button" class="btn btn-primary"
+                                onclick="button_click_event_listener('', 'date_filter')">Показать
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="row">
+                    <div class="col-12 col-sm-12 chart-button-title">
+                        Дата до:
+                    </div>
+
+                    <div class="col-6 col-sm-12">
+                        <input data-date-format="yyyy-dd-mm" type="date" class="form-control" id="dates_range_to">
+                    </div>
+
+                    <div class="col-sm-12 chart-submit-buttons">
+                        <button id="button-download" onclick="download_file_by_date_range()"
+                                type="button" class=" btn btn-primary">Скачать в CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="chart-container" class="container">
+        <div class="row">
+            <div id="graph-container">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <template id="targets-template">
+        <div class="col-2 col-sm-4">
+            <button id="m1" type="button" onclick="button_click_event_listener('m1', 'm_button')"
+                    class="btn btn-primary active">М1
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m3" type="button" onclick="button_click_event_listener('m3', 'm_button')"
+                    class="btn btn-primary">М3
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m5" type="button" onclick="button_click_event_listener('m5', 'm_button')"
+                    class="btn btn-primary">М5
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m2" type="button" onclick="button_click_event_listener('m2', 'm_button')"
+                    class="btn btn-primary">М2
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m4" type="button" onclick="button_click_event_listener('m4', 'm_button')"
+                    class="btn btn-primary">М4
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m6" type="button" onclick="button_click_event_listener('m6', 'm_button')"
+                    class="btn btn-primary">М6
+            </button>
+        </div>
+
+    </template>
+
+    <template id="kren-template">
+        <div class="col-2 col-sm-4">
+            <button id="m1" type="button" onclick="button_click_event_listener(['m1', 'm2'], 'm_button_kren')"
+                    class="btn btn-primary active">М1<br>M2
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m3" type="button" onclick="button_click_event_listener(['m3', 'm4'], 'm_button_kren')"
+                    class="btn btn-primary">М3<br>M4
+            </button>
+        </div>
+        <div class="col-2 col-sm-4">
+            <button id="m5" type="button" onclick="button_click_event_listener(['m5', 'm6'], 'm_button_kren')"
+                    class="btn btn-primary">М5<br>M6
+            </button>
+        </div>
+
+    </template>
+
+
+    {% include 'footer.html' %}
+{% endblock content %}
