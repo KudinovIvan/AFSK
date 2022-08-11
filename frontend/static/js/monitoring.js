@@ -317,6 +317,39 @@ let download_file_by_date_range = async () => {
     })
 }
 
+let subscribe_email = async () => {
+    let Url = root_url + "api/v1/mailing/";
+
+    let Headers = {
+      'Authorization': 'Bearer ' + get_cookie("access")
+    }
+
+    let response = await fetch(Url, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: Headers,
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer'
+    })
+
+    const btn = document.getElementById("email-subscription");
+    const resultMsg = document.getElementById("success-message");
+
+    btn.classList.remove("mb-3");
+    btn.classList.add("mb-1");
+
+    if (response.ok) {
+      resultMsg.textContent = "Рассылка подключена!";
+      resultMsg.style.lineHeight = "20px";
+      resultMsg.classList.add("mb-2");
+    } else {
+      resultMsg.textContent = "Ошибка подключения рассылки.";
+      resultMsg.style.lineHeight = "20px";
+      resultMsg.classList.add("mb-2");
+    }
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
     if (get_cookie("access") === null && get_cookie("refresh") !== null) {

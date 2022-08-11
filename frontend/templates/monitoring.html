@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-12 col-sm-6 col-lg-3 buttons-block-border-right">
-                <div class="col-sm-12 chart-button-title">Метка:</div>
+                <div class="col-sm-12 chart-button-title pb-3">Метка:</div>
                 <div class="col-sm-12">
                     <div id="m-buttons" class="row panel-buttons">
 
@@ -42,7 +42,7 @@
 
             <div class="col-12 col-sm-6 col-lg-3 ">
                 <div class="row">
-                    <div class="col-sm-12 chart-button-title">
+                    <div class="col-sm-12 chart-button-title pb-3">
                         <label for="date_selection">Дата от: </label>
                     </div>
                      <div class="col-6 col-sm-12">
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="col-sm-12 chart-submit-buttons">
-                        <button id="button-show" type="button" class="btn btn-primary"
+                        <button id="button-show" type="button" class="btn btn-primary mt-1"
                                 onclick="button_click_event_listener('', 'date_filter')">Показать
                         </button>
                     </div>
@@ -59,7 +59,7 @@
 
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="row">
-                    <div class="col-12 col-sm-12 chart-button-title">
+                    <div class="col-12 col-sm-12 chart-button-title pb-3">
                         Дата до:
                     </div>
 
@@ -69,8 +69,14 @@
 
                     <div class="col-sm-12 chart-submit-buttons">
                         <button id="button-download" onclick="download_file_by_date_range()"
-                                type="button" class=" btn btn-primary">Скачать в CSV
+                                type="button" class=" btn btn-primary mt-1">Скачать в CSV
                         </button>
+                    </div>
+                    <div class="col-sm-12 chart-submit-buttons">
+                        <button id="email-subscription" onclick="subscribe_email()"
+                                type="button" class="btn btn-primary mb-3 mt-1">Месячный отчет
+                        </button>
+                        <p id="success-message" class="mb-0"></p>
                     </div>
                 </div>
             </div>
