@@ -22,6 +22,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     family_name = models.CharField(null=True, blank=True, verbose_name="Фамилия", max_length=100, default=None)
     email = models.EmailField(null=True, blank=True, verbose_name="Адрес электронной почты", max_length=100, default=None)
 
+    mailing = models.BooleanField(verbose_name="рассылка",
+                                   help_text='Подключает ежемесячную рассылку по 6 метрикам',
+                                   default=False)
+
     is_staff = models.BooleanField(verbose_name="администратор",
                                    help_text='Предоставляет доступ к административной панели Django',
                                    default=False)

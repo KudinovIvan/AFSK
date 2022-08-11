@@ -1,5 +1,6 @@
 asgiref==3.3.1
 astroid==2.4.2
+celery==4.4.1
 Django==3.1.5
 django-cleanup==5.1.0
 django-cors-headers==3.5.0
@@ -17,6 +18,7 @@ psycopg2-binary==2.8.6
 PyJWT==2.0.1
 pylint==2.6.0
 pytz==2020.5
+redis==3.4.1
 six==1.15.0
 sqlparse==0.4.1
 toml==0.10.2

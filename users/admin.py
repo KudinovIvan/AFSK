@@ -24,7 +24,8 @@ class CustomUserAdmin(UserAdmin):
                                       'family_name',
                                       'email')}),
         ('Разрешения', {'fields': ('is_staff',
-                                   'is_active',)}),
+                                   'is_active',
+                                   'mailing',)}),
         ('Доступные ссылки', {'fields': ('links',)})
     )
     add_fieldsets = (

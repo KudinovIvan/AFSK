@@ -1,13 +1,18 @@
 version: '3'
 
 services:
+
+  redis:
+    image: redis:5-alpine
+    container_name: redis
+
   backend:
     restart: always
     container_name: backend
     build:
       context: .
       dockerfile: ./Dockerfiles/backend/Dockerfile
-    command: sh -c "gunicorn afskspb.wsgi:application --bind 0.0.0.0:8000"
+    command: sh -c "python manage.py collectstatic --noinput --clear & gunicorn afskspb.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - ./:/usr/src/afskspb/
       - static_volume:/usr/src/afskspb/static
@@ -17,6 +22,7 @@ services:
     env_file:
       - ./Dockerfiles/backend/.env.prod
     depends_on:
+      - redis
       - db
 
   db:
@@ -31,6 +37,28 @@ services:
       - POSTGRES_DB=db_name
     expose:
       - 5432
+
+  celery:
+    container_name: celery
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/backend/Dockerfile
+    command: celery -A afskspb worker -l INFO --without-gossip --without-mingle
+    env_file:
+      - ./Dockerfiles/backend/.env.prod
+    depends_on:
+      - redis
+
+  celery_beat:
+    container_name: celery_beat
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/backend/Dockerfile
+    command: celery -A afskspb beat -l INFO --max-interval 60
+    env_file:
+      - ./Dockerfiles/backend/.env.prod
+    depends_on:
+      - redis
 
   nginx:
     restart: always

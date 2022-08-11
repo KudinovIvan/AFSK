@@ -14,6 +14,8 @@ from pathlib import Path
 from datetime import timedelta
 import os
 
+from celery.schedules import crontab
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -208,3 +210,27 @@ LOGGING = {
         }
     }
 }
+
+# CELERY
+CELERY_CACHE_BACKEND = os.environ.get("CELERY_CACHE_BACKEND", default="")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND", default="")
+CELERY_WORKER_SEND_TASK_EVENTS = True
+CELERY_ACCEPT_CONTENT = ["json", "msgpack", "yaml"]
+CELERY_TASK_TRACK_STARTED = True
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL", default="")
+CELERY_BEAT_SCHEDULE = {
+    "send_mailing": {
+        "task": "api.tasks.send_mailing",
+        "schedule": crontab(0, 0, day_of_month='1'),
+        # Для тестирование, рассылка будет каждую минуту, инфа приходит за прошлый месяц
+        #"schedule": crontab(minute="*/1"),
+    },
+}
+
+# MAIL
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", default="")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", default="")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", default="")
+EMAIL_USE_TLS = True

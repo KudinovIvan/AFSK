@@ -20,4 +20,4 @@ COPY . .
 RUN pip3 install -r requirements.txt
 
 # run entrypoint.sh
-ENTRYPOINT ["/usr/src/afskspb/Dockerfiles/backend/enterypoint.sh"]
+#ENTRYPOINT ["/usr/src/afskspb/Dockerfiles/backend/enterypoint.sh"]

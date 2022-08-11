@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models import UrlsModel
+from api.models import UrlsModel, TargetsModel
 from django.forms import CheckboxSelectMultiple
 from django.db import models
 
@@ -11,3 +11,6 @@ class UrlsModelAdmin(admin.ModelAdmin):
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
     }
     list_display = ['name', 'priority', 'url', 'is_visible']
+
+
+admin.site.register(TargetsModel)
